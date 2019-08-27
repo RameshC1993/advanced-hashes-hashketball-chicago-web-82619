@@ -91,6 +91,57 @@ def team_colors(team)
     end
   end
 end
+<<<<<<< HEAD
+=======
+
+def team_names
+  t_names = []
+  
+  game_hash.each do |key, value|
+    t_names << value[:team_name]
+  end
+  
+  return t_names
+end
+
+def player_numbers(team)
+  numbers = []
+  
+  game_hash.each do |key1, value1|
+    if value1[:team_name] == team
+      value1.each do |key2, value2|
+        if key2.to_s == "players"
+          value2.each do |player|
+            p_name = player.keys[0]
+            numbers << player[p_name][:number]
+          end
+        end
+      end
+    end
+  end
+  
+  return numbers.sort
+end
+
+def player_stats(player)
+  
+  game_hash.each do |key1, value1|
+
+      value1.each do |key2, value2|
+        if key2.to_s == "players"
+          value2.each do |player|
+            p_name = player.keys[0]
+            
+            if p_name == player
+              return player[p_name]
+            end
+          end
+        end
+      end
+    
+  end
+end
+>>>>>>> 77d3cb8cc1046af1c15c63e7561b1abbc906b71f
 
 def team_names
   t_names = []
